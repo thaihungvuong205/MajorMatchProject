@@ -1,0 +1,61 @@
+mysql> create database majormatch;
+
+mysql> use majormatch
+
+mysql> create table skills(
+    -> skill_name varchar(40) primary key
+    -> );
+
+mysql> create table interests(
+    -> interest_name varchar(40) primary key
+    -> );
+
+mysql> create table student(
+    -> student_id int primary key,
+    -> student_name varchar(40),
+    -> student_email varchar(40),
+    -> student_education_level varchar(40)
+    -> );
+
+mysql> create table degree(
+    -> major varchar(40) primary key
+    -> );
+
+mysql> create table prerequisite(
+    -> subject varchar(40) primary key
+    -> );
+
+mysql> create table student_skill(
+    -> student_id int,
+    -> skill_name varchar(40),
+    -> skill_level int,
+    -> primary key(student_id, skill_name),
+    -> foreign key (student_id) references student(student_id),
+    -> foreign key (skill_name) references skills(skill_name)
+    -> );
+
+mysql> create table student_interest(
+    -> student_id int,
+    -> interest_name varchar(40),
+    -> interest_level int,
+    -> primary key(student_id, interest_name),
+    -> foreign key (student_id) references student(student_id),
+    -> foreign key (interest_name) references interests(interest_name)
+    -> );
+
+mysql> create table has_prerequisite(
+    -> major varchar(40),
+    -> subject varchar(40),
+    -> primary key(major, subject),
+    -> foreign key (major) references degree(major),
+    -> foreign key (subject) references prerequisite(subject)
+    -> );
+
+mysql> create table university_student(
+    -> student_id int primary key,
+    -> major varchar(40),
+    -> foreign key (student_id) references student(student_id),
+    -> foreign key (major) references degree(major)
+    -> );
+
+mysql>
