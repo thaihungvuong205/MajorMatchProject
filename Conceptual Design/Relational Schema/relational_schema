@@ -14,7 +14,7 @@ INTERESTS(
 
 STUDENT_SKILL(
   student_id PK/FK,
-  skill_name PK/FK
+  skill_name PK/FK,
   skill_level
 )
 
