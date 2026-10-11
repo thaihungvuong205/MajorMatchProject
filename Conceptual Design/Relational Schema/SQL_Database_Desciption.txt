@@ -1,0 +1,98 @@
+mysql> show tables;
++----------------------+
+| Tables_in_majormatch |
++----------------------+
+| degree               |
+| has_prerequisite     |
+| interests            |
+| prerequisite         |
+| skills               |
+| student              |
+| student_interest     |
+| student_skill        |
+| university_student   |
++----------------------+
+9 rows in set (0.00 sec)
+
+mysql> describe degree;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| major | varchar(40) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> describe has_prerequisite;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| major   | varchar(40) | NO   | PRI | NULL    |       |
+| subject | varchar(40) | NO   | PRI | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> describe interests;
++---------------+-------------+------+-----+---------+-------+
+| Field         | Type        | Null | Key | Default | Extra |
++---------------+-------------+------+-----+---------+-------+
+| interest_name | varchar(40) | NO   | PRI | NULL    |       |
++---------------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> describe prerequisite;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| subject | varchar(40) | NO   | PRI | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> describe skills;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| skill_name | varchar(40) | NO   | PRI | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> describe student;
++-------------------------+-------------+------+-----+---------+-------+
+| Field                   | Type        | Null | Key | Default | Extra |
++-------------------------+-------------+------+-----+---------+-------+
+| student_id              | int         | NO   | PRI | NULL    |       |
+| student_name            | varchar(40) | YES  |     | NULL    |       |
+| student_email           | varchar(40) | YES  |     | NULL    |       |
+| student_education_level | varchar(40) | YES  |     | NULL    |       |
++-------------------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> describe student_interest;
++----------------+-------------+------+-----+---------+-------+
+| Field          | Type        | Null | Key | Default | Extra |
++----------------+-------------+------+-----+---------+-------+
+| student_id     | int         | NO   | PRI | NULL    |       |
+| interest_name  | varchar(40) | NO   | PRI | NULL    |       |
+| interest_level | int         | YES  |     | NULL    |       |
++----------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> describe student_skill;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| student_id  | int         | NO   | PRI | NULL    |       |
+| skill_name  | varchar(40) | NO   | PRI | NULL    |       |
+| skill_level | int         | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> describe university_student;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| student_id | int         | NO   | PRI | NULL    |       |
+| major      | varchar(40) | YES  | MUL | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql>
